@@ -86,11 +86,64 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="AnadirProductos.Designer.vb">
+      <DependentUpon>AnadirProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AnadirProductos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="AnadirPromocion.Designer.vb">
+      <DependentUpon>AnadirPromocion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AnadirPromocion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AñadirCategoria.Designer.vb">
+      <DependentUpon>AñadirCategoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AñadirCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EliminarCategoria.Designer.vb">
+      <DependentUpon>EliminarCategoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EliminarProducto.Designer.vb">
+      <DependentUpon>EliminarProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EliminarPromocion.Designer.vb">
+      <DependentUpon>EliminarPromocion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarPromocion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnviarCorreo.Designer.vb">
+      <DependentUpon>EnviarCorreo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EnviarCorreo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.vb">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarCategoria.Designer.vb">
+      <DependentUpon>ModificarCategoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarProductos.Designer.vb">
+      <DependentUpon>ModificarProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarProductos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -110,6 +163,36 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AnadirProductos.resx">
+      <DependentUpon>AnadirProductos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnadirPromocion.resx">
+      <DependentUpon>AnadirPromocion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AñadirCategoria.resx">
+      <DependentUpon>AñadirCategoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EliminarCategoria.resx">
+      <DependentUpon>EliminarCategoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EliminarProducto.resx">
+      <DependentUpon>EliminarProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EliminarPromocion.resx">
+      <DependentUpon>EliminarPromocion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnviarCorreo.resx">
+      <DependentUpon>EnviarCorreo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarCategoria.resx">
+      <DependentUpon>ModificarCategoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarProductos.resx">
+      <DependentUpon>ModificarProductos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
