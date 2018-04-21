@@ -22,46 +22,58 @@ Partial Class AñadirCategoria
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.lblNombre = New System.Windows.Forms.Label()
+        Me.mostrar_error = New System.Windows.Forms.ErrorProvider(Me.components)
+        CType(Me.mostrar_error, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnGuardar
         '
-        Me.btnGuardar.Location = New System.Drawing.Point(138, 126)
+        Me.btnGuardar.Location = New System.Drawing.Point(184, 155)
+        Me.btnGuardar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(85, 30)
+        Me.btnGuardar.Size = New System.Drawing.Size(113, 37)
         Me.btnGuardar.TabIndex = 8
         Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.UseVisualStyleBackColor = True
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(113, 46)
+        Me.txtNombre.Location = New System.Drawing.Point(151, 57)
+        Me.txtNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(216, 20)
+        Me.txtNombre.Size = New System.Drawing.Size(287, 22)
         Me.txtNombre.TabIndex = 7
         '
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
-        Me.lblNombre.Location = New System.Drawing.Point(38, 49)
+        Me.lblNombre.Location = New System.Drawing.Point(51, 60)
+        Me.lblNombre.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblNombre.Name = "lblNombre"
-        Me.lblNombre.Size = New System.Drawing.Size(54, 13)
+        Me.lblNombre.Size = New System.Drawing.Size(68, 17)
         Me.lblNombre.TabIndex = 6
         Me.lblNombre.Text = "NOMBRE"
         '
+        'mostrar_error
+        '
+        Me.mostrar_error.ContainerControl = Me
+        '
         'AñadirCategoria
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(379, 198)
+        Me.ClientSize = New System.Drawing.Size(505, 244)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.lblNombre)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "AñadirCategoria"
         Me.Text = "AñadirCategoria"
+        CType(Me.mostrar_error, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -70,4 +82,5 @@ Partial Class AñadirCategoria
     Friend WithEvents btnGuardar As Button
     Friend WithEvents txtNombre As TextBox
     Friend WithEvents lblNombre As Label
+    Friend WithEvents mostrar_error As ErrorProvider
 End Class
