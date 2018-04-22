@@ -1,0 +1,2 @@
+CREATE TABLE `empresa_prueba`.`Categorias` ( `id_categoria` INT NULL AUTO_INCREMENT , `nombre` VARCHAR(32) NOT NULL , `promocion` BOOLEAN NOT NULL , `descuento` INT NOT NULL , PRIMARY KEY (`id_categoria`)) ENGINE = InnoDB;
+
