@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.IO
 Public Class AnadirProductos
-    Dim result As Byte()
+    Dim foto As Byte()
     '//////////////////////////////////////////////////////////////////
     'FUNCIÓN LOAD PARA CARGAR EN EL COMBOBOX LAS CATEGORIAS DISPONIBLES
     '//////////////////////////////////////////////////////////////////
@@ -46,7 +46,8 @@ Public Class AnadirProductos
                 myStream = openFile.OpenFile()
                 If (myStream IsNot Nothing) Then
                     name = openFile.FileName
-                    result = File.ReadAllBytes(name)
+                    foto = File.ReadAllBytes(name)
+                    pbImagen.Image = Image.FromFile(openFile.FileName)
                 End If
             Catch Ex As Exception
                 MessageBox.Show("NO SE PUEDE LEER LA IMAGEN: " & Ex.Message)
@@ -56,22 +57,29 @@ Public Class AnadirProductos
                 End If
             End Try
         End If
-        Return result
+        Return foto
     End Function
 
     '////////////////////////////////////////////////////////
     'BOTON PARA ALMACENAR LA INFORMACION EN LA BASE DE DATOS
     '////////////////////////////////////////////////////////
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-
+        guardar_producto()
     End Sub
 
     Private Sub guardar_producto()
+        Dim id_categoria = devolver_id_categoria()
+
         Try
             conn.Open()
             Dim Query As String
-            Query = "insert into Productos(nombre,categoria,precio,descuento,promocion,foto) values ('" & txtNombre.Text & "'," & devolver_id_categoria() & "," & txtPrecio.Text & "," & 0 & "," & False & "," & result & ")"
+            Query = "insert into Productos(nombre,categoria,precio,descuento,promocion,foto) values (?nombre,?categoria,?precio,0,false,?foto)"
             Command = New MySqlCommand(Query, conn)
+            Command.Parameters.AddWithValue("?foto", foto)
+            Command.Parameters.AddWithValue("?nombre", txtNombre.Text)
+            Command.Parameters.AddWithValue("?categoria", id_categoria)
+            Command.Parameters.AddWithValue("?precio", txtPrecio.Text)
+
             READER = Command.ExecuteReader
             MessageBox.Show("DATOS GUARDADOS CORRECTAMENTE")
             READER.Close()
