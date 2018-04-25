@@ -66,6 +66,24 @@ Public Class AnadirProductos
 
     End Sub
 
+    Private Sub guardar_producto()
+        Try
+            conn.Open()
+            Dim Query As String
+            Query = "insert into Productos(nombre,categoria,precio,descuento,promocion,foto) values ('" & txtNombre.Text & "'," & devolver_id_categoria() & "," & txtPrecio.Text & "," & 0 & "," & False & "," & result & ")"
+            Command = New MySqlCommand(Query, conn)
+            READER = Command.ExecuteReader
+            MessageBox.Show("DATOS GUARDADOS CORRECTAMENTE")
+            READER.Close()
+            conn.Close()
+        Catch ex As MySql.Data.MySqlClient.MySqlException
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+
+
+
     '///////////////////////////////////////////////////////
     'FUNCIÓN QUE DEVUELVE EL ID DE LA CATEGORÍA SELECCIONADA
     '///////////////////////////////////////////////////////
@@ -95,8 +113,6 @@ Public Class AnadirProductos
         End Try
         Return False
     End Function
-
-
 
 
 End Class
