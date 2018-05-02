@@ -1,2 +1,3 @@
 CREATE TABLE `empresa_prueba`.`Categorias` ( `id_categoria` INT NULL AUTO_INCREMENT , `nombre` VARCHAR(32) NOT NULL , `promocion` BOOLEAN NOT NULL , `descuento` INT NOT NULL , PRIMARY KEY (`id_categoria`)) ENGINE = InnoDB;
-
+CREATE TABLE `empresa_prueba`.`Productos` ( `id_producto` INT NULL AUTO_INCREMENT , `nombre` VARCHAR(32) NOT NULL , `categoria` INT NOT NULL , `precio` DOUBLE NOT NULL , `descuento` INT NOT NULL , `promocion` BOOLEAN NOT NULL , `foto` BLOB NOT NULL , PRIMARY KEY (`id_producto`)) ENGINE = InnoDB;
+alter table productos add constraint fk_productos foreign key(categoria) references categorias(id_categoria)

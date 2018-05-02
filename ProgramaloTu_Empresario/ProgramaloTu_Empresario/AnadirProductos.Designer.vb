@@ -22,6 +22,7 @@ Partial Class AnadirProductos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnImagen = New System.Windows.Forms.Button()
         Me.pbImagen = New System.Windows.Forms.PictureBox()
@@ -31,7 +32,9 @@ Partial Class AnadirProductos
         Me.lblPrecio = New System.Windows.Forms.Label()
         Me.lblCategorai = New System.Windows.Forms.Label()
         Me.lblNombre = New System.Windows.Forms.Label()
+        Me.mostrar_error = New System.Windows.Forms.ErrorProvider(Me.components)
         CType(Me.pbImagen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.mostrar_error, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnGuardar
@@ -109,6 +112,10 @@ Partial Class AnadirProductos
         Me.lblNombre.TabIndex = 18
         Me.lblNombre.Text = "NOMBRE "
         '
+        'mostrar_error
+        '
+        Me.mostrar_error.ContainerControl = Me
+        '
         'AnadirProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -126,6 +133,7 @@ Partial Class AnadirProductos
         Me.Name = "AnadirProductos"
         Me.Text = "AnadirProductos"
         CType(Me.pbImagen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.mostrar_error, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -140,4 +148,5 @@ Partial Class AnadirProductos
     Friend WithEvents lblPrecio As Label
     Friend WithEvents lblCategorai As Label
     Friend WithEvents lblNombre As Label
+    Friend WithEvents mostrar_error As ErrorProvider
 End Class
