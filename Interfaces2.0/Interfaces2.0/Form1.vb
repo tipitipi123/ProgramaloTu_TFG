@@ -78,6 +78,10 @@ Public Class Form1
         abrirFromulario(frmPromociones)
     End Sub
 
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        abrirFromulario(FrmCorreo)
+    End Sub
+
     Private Sub btnCategorias_Click(sender As Object, e As EventArgs) Handles btnCategorias.Click
         abrirFromulario(frmCategorias)
     End Sub
