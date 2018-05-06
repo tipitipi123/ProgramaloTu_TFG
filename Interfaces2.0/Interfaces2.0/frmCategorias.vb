@@ -33,11 +33,11 @@ Public Class frmCategorias
             Command = New MySqlCommand(Query, conn)
             READER = Command.ExecuteReader
             MessageBox.Show("Categoría creada")
-            READER.Close()
-            conn.Close()
         Catch ex As MySql.Data.MySqlClient.MySqlException
             MessageBox.Show(ex.Message)
         End Try
+        READER.Close()
+        conn.Close()
     End Sub
 
     '/////////////////////////////////////////////////////
@@ -56,14 +56,12 @@ Public Class frmCategorias
                 mostrar_error.SetError(Me.txtNombre, "")
                 Return True
             End If
-            READER.Close()
-            conn.Close()
         Catch ex As MySql.Data.MySqlClient.MySqlException
             MessageBox.Show(ex.Message)
-            READER.Close()
-            conn.Close()
             Return False
         End Try
+        READER.Close()
+        conn.Close()
         mostrar_error.SetError(Me.txtNombre, "LA CATEGORÍA YA EXISTE")
         Return False
     End Function
@@ -75,6 +73,7 @@ Public Class frmCategorias
         Dim Query As String
         Query = "SELECT * FROM Categorias"
         Try
+            conn.Close()
             conn.Open()
             Command = New MySqlCommand(Query, conn)
             READER = Command.ExecuteReader()
@@ -98,5 +97,65 @@ Public Class frmCategorias
     '/////////////////////////////////////////////////////
     Private Sub frmCategorias_Load(sender As Object, e As EventArgs) Handles Me.Load
         actualizarDataGridView()
+    End Sub
+
+    '/////////////////////////////////////////////////////
+    'BOTÓN EDITAR
+    '/////////////////////////////////////////////////////
+    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+        cargarCategorias()
+    End Sub
+
+    Private Sub cargarCategorias()
+        If dgvShow.SelectedRows.Count > 0 Then
+            txtNombre.Text = dgvShow.CurrentRow.Cells.Item(1).Value.ToString
+        End If
+    End Sub
+
+    '/////////////////////////////////////////////////////
+    'BOTÓN ELIMINAR
+    '/////////////////////////////////////////////////////
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        borrarEnPedidos()
+        If borrarEnCategoria() Then
+            actualizarDataGridView()
+            MsgBox("Categoria Borrado")
+        End If
+    End Sub
+
+    Private Function borrarEnCategoria()
+        Try
+            conn.Open()
+            Dim Query As String
+            Query = "delete from Categorias where id_categoria = ?id"
+            Command = New MySqlCommand(Query, conn)
+            Command.Parameters.AddWithValue("?id", dgvShow.CurrentRow.Cells.Item(0).Value)
+            READER = Command.ExecuteReader
+            Return True
+        Catch ex As MySql.Data.MySqlClient.MySqlException
+            MessageBox.Show(ex.Message)
+        Catch e As System.NullReferenceException
+            MsgBox("No hay una fila seleccionada")
+        End Try
+        READER.Close()
+        conn.Close()
+        Return False
+    End Function
+
+    Private Sub borrarEnPedidos()
+        Try
+            conn.Open()
+            Dim Query As String
+            Query = "delete from productos where categoria = ?id"
+            Command = New MySqlCommand(Query, conn)
+            Command.Parameters.AddWithValue("?id", dgvShow.CurrentRow.Cells.Item(0).Value)
+            READER = Command.ExecuteReader
+        Catch ex As MySql.Data.MySqlClient.MySqlException
+            MessageBox.Show(ex.Message)
+        Catch e As System.NullReferenceException
+
+        End Try
+        READER.Close()
+        conn.Close()
     End Sub
 End Class
