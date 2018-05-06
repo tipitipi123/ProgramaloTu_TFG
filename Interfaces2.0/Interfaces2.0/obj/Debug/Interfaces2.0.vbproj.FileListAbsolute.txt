@@ -10,3 +10,6 @@ C:\Users\Tipix\source\repos\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.
 C:\Users\Tipix\source\repos\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.exe
 C:\Users\Tipix\source\repos\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.xml
 C:\Users\Tipix\source\repos\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.pdb
+C:\Users\Tipix\source\repos\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2._0.frmCategorias.resources
+C:\Users\Tipix\source\repos\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2._0.frmProductos.resources
+C:\Users\Tipix\source\repos\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2._0.frmPromociones.resources
