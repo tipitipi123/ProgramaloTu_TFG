@@ -6,6 +6,7 @@ Public Class frmCategorias
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         If comprobar_datos() And comprobar_existe() Then
             insertar_datos()
+            actualizarDataGridView()
         End If
     End Sub
 
@@ -70,6 +71,32 @@ Public Class frmCategorias
     '/////////////////////////////////////////////////////
     'MÉTODO PARA ACTUALIZAR EL DATA GRID VIEW
     '/////////////////////////////////////////////////////
+    Private Sub actualizarDataGridView()
+        Dim Query As String
+        Query = "SELECT * FROM Categorias"
+        Try
+            conn.Open()
+            Command = New MySqlCommand(Query, conn)
+            READER = Command.ExecuteReader()
+            'Creamos un DataTable y le pasamos la consulta 
+            Dim dt = New DataTable()
+            dt.Load(READER)
+            'Cargamos el DataTable en el GridDataView
+            dgvShow.AutoGenerateColumns = True
+            dgvShow.DataSource = dt
+            dgvShow.Refresh()
+            READER.Close()
+            conn.Close()
+        Catch ex As MySql.Data.MySqlClient.MySqlException
+            MessageBox.Show(ex.Message)
+            conn.Close()
+        End Try
+    End Sub
 
-
+    '/////////////////////////////////////////////////////
+    'MÉTODO QUE PRECARGA TODO LO NECESARIO
+    '/////////////////////////////////////////////////////
+    Private Sub frmCategorias_Load(sender As Object, e As EventArgs) Handles Me.Load
+        actualizarDataGridView()
+    End Sub
 End Class

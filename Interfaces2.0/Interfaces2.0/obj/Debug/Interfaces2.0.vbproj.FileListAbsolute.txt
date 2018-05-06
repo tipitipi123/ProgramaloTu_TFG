@@ -50,3 +50,13 @@ C:\Users\Tipix\Desktop\TFG\ProgramaloTu_TFG\ProgramaloTu_TFG\Interfaces2.0\Inter
 C:\Users\Tipix\Desktop\TFG\ProgramaloTu_TFG\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\bin\Debug\MySql.Data.xml
 C:\Users\Tipix\Desktop\TFG\ProgramaloTu_TFG\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.vbproj.CopyComplete
 >>>>>>> be88389d1ec171ea902130fdae041f3b37ebff2e
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\bin\Debug\Google.Protobuf.dll
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\bin\Debug\MySql.Data.dll
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\bin\Debug\Google.Protobuf.xml
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\bin\Debug\MySql.Data.xml
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2._0.frmCategorias.resources
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2._0.frmCliente.resources
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2._0.FrmCorreo.resources
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2._0.frmProductos.resources
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2._0.frmPromociones.resources
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.vbproj.CopyComplete
