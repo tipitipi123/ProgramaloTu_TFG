@@ -30,7 +30,7 @@ Partial Class Form1
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnProductos = New System.Windows.Forms.Button()
         Me.btnCategorias = New System.Windows.Forms.Button()
         Me.MenuTop = New System.Windows.Forms.Panel()
         Me.pbMinimizar = New System.Windows.Forms.PictureBox()
@@ -59,12 +59,12 @@ Partial Class Form1
         Me.MenuVertical.Controls.Add(Me.Button4)
         Me.MenuVertical.Controls.Add(Me.Button3)
         Me.MenuVertical.Controls.Add(Me.Button2)
-        Me.MenuVertical.Controls.Add(Me.Button1)
+        Me.MenuVertical.Controls.Add(Me.btnProductos)
         Me.MenuVertical.Controls.Add(Me.btnCategorias)
         Me.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left
         Me.MenuVertical.Location = New System.Drawing.Point(0, 0)
         Me.MenuVertical.Name = "MenuVertical"
-        Me.MenuVertical.Size = New System.Drawing.Size(250, 650)
+        Me.MenuVertical.Size = New System.Drawing.Size(250, 667)
         Me.MenuVertical.TabIndex = 0
         '
         'pbLetrasLogo
@@ -153,21 +153,21 @@ Partial Class Form1
         Me.Button2.Text = "     PROMOCIONES"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnProductos
         '
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(0, 198)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(250, 40)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "PRODUCTOS"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnProductos.FlatAppearance.BorderSize = 0
+        Me.btnProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnProductos.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnProductos.ForeColor = System.Drawing.Color.White
+        Me.btnProductos.Image = CType(resources.GetObject("btnProductos.Image"), System.Drawing.Image)
+        Me.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnProductos.Location = New System.Drawing.Point(0, 198)
+        Me.btnProductos.Name = "btnProductos"
+        Me.btnProductos.Size = New System.Drawing.Size(250, 40)
+        Me.btnProductos.TabIndex = 1
+        Me.btnProductos.Text = "PRODUCTOS"
+        Me.btnProductos.UseVisualStyleBackColor = True
         '
         'btnCategorias
         '
@@ -182,7 +182,7 @@ Partial Class Form1
         Me.btnCategorias.Name = "btnCategorias"
         Me.btnCategorias.Size = New System.Drawing.Size(250, 40)
         Me.btnCategorias.TabIndex = 0
-        Me.btnCategorias.Text = "CATEGORIAS"
+        Me.btnCategorias.Text = "CATEGORÍAS"
         Me.btnCategorias.UseVisualStyleBackColor = True
         '
         'MenuTop
@@ -196,14 +196,14 @@ Partial Class Form1
         Me.MenuTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.MenuTop.Location = New System.Drawing.Point(250, 0)
         Me.MenuTop.Name = "MenuTop"
-        Me.MenuTop.Size = New System.Drawing.Size(1050, 45)
+        Me.MenuTop.Size = New System.Drawing.Size(1222, 45)
         Me.MenuTop.TabIndex = 1
         '
         'pbMinimizar
         '
         Me.pbMinimizar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pbMinimizar.Image = CType(resources.GetObject("pbMinimizar.Image"), System.Drawing.Image)
-        Me.pbMinimizar.Location = New System.Drawing.Point(993, 7)
+        Me.pbMinimizar.Location = New System.Drawing.Point(1165, 7)
         Me.pbMinimizar.Name = "pbMinimizar"
         Me.pbMinimizar.Size = New System.Drawing.Size(20, 20)
         Me.pbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -215,7 +215,7 @@ Partial Class Form1
         '
         Me.pbBackground.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pbBackground.Image = CType(resources.GetObject("pbBackground.Image"), System.Drawing.Image)
-        Me.pbBackground.Location = New System.Drawing.Point(967, 7)
+        Me.pbBackground.Location = New System.Drawing.Point(1139, 7)
         Me.pbBackground.Name = "pbBackground"
         Me.pbBackground.Size = New System.Drawing.Size(20, 20)
         Me.pbBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -226,7 +226,7 @@ Partial Class Form1
         '
         Me.pbMaximizar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pbMaximizar.Image = CType(resources.GetObject("pbMaximizar.Image"), System.Drawing.Image)
-        Me.pbMaximizar.Location = New System.Drawing.Point(993, 7)
+        Me.pbMaximizar.Location = New System.Drawing.Point(1165, 7)
         Me.pbMaximizar.Name = "pbMaximizar"
         Me.pbMaximizar.Size = New System.Drawing.Size(20, 20)
         Me.pbMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -237,7 +237,7 @@ Partial Class Form1
         '
         Me.pbCerrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pbCerrar.Image = CType(resources.GetObject("pbCerrar.Image"), System.Drawing.Image)
-        Me.pbCerrar.Location = New System.Drawing.Point(1019, 7)
+        Me.pbCerrar.Location = New System.Drawing.Point(1191, 7)
         Me.pbCerrar.Name = "pbCerrar"
         Me.pbCerrar.Size = New System.Drawing.Size(20, 20)
         Me.pbCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -260,14 +260,14 @@ Partial Class Form1
         Me.MenuForm.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MenuForm.Location = New System.Drawing.Point(250, 45)
         Me.MenuForm.Name = "MenuForm"
-        Me.MenuForm.Size = New System.Drawing.Size(1050, 605)
+        Me.MenuForm.Size = New System.Drawing.Size(1222, 622)
         Me.MenuForm.TabIndex = 2
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1300, 650)
+        Me.ClientSize = New System.Drawing.Size(1472, 667)
         Me.Controls.Add(Me.MenuForm)
         Me.Controls.Add(Me.MenuTop)
         Me.Controls.Add(Me.MenuVertical)
@@ -301,6 +301,6 @@ Partial Class Form1
     Friend WithEvents Button4 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnProductos As Button
     Friend WithEvents pbLetrasLogo As PictureBox
 End Class
