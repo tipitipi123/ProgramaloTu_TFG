@@ -31,9 +31,10 @@ Partial Class EliminarCategoria
         '
         'btnEliminar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(43, 422)
+        Me.btnEliminar.Location = New System.Drawing.Point(57, 519)
+        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(92, 53)
+        Me.btnEliminar.Size = New System.Drawing.Size(123, 65)
         Me.btnEliminar.TabIndex = 11
         Me.btnEliminar.Text = "ELIMINAR"
         Me.btnEliminar.UseVisualStyleBackColor = True
@@ -41,37 +42,41 @@ Partial Class EliminarCategoria
         'dgvProductos
         '
         Me.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvProductos.Location = New System.Drawing.Point(43, 101)
+        Me.dgvProductos.Location = New System.Drawing.Point(57, 124)
+        Me.dgvProductos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvProductos.Name = "dgvProductos"
-        Me.dgvProductos.Size = New System.Drawing.Size(606, 281)
+        Me.dgvProductos.Size = New System.Drawing.Size(808, 346)
         Me.dgvProductos.TabIndex = 10
         '
         'cbCategoria
         '
         Me.cbCategoria.FormattingEnabled = True
-        Me.cbCategoria.Location = New System.Drawing.Point(148, 31)
+        Me.cbCategoria.Location = New System.Drawing.Point(197, 38)
+        Me.cbCategoria.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cbCategoria.Name = "cbCategoria"
-        Me.cbCategoria.Size = New System.Drawing.Size(232, 21)
+        Me.cbCategoria.Size = New System.Drawing.Size(308, 24)
         Me.cbCategoria.TabIndex = 9
         '
         'lblCategoria
         '
         Me.lblCategoria.AutoSize = True
-        Me.lblCategoria.Location = New System.Drawing.Point(40, 34)
+        Me.lblCategoria.Location = New System.Drawing.Point(53, 42)
+        Me.lblCategoria.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCategoria.Name = "lblCategoria"
-        Me.lblCategoria.Size = New System.Drawing.Size(69, 13)
+        Me.lblCategoria.Size = New System.Drawing.Size(88, 17)
         Me.lblCategoria.TabIndex = 8
         Me.lblCategoria.Text = "CATEGORIA"
         '
         'EliminarCategoria
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(703, 503)
+        Me.ClientSize = New System.Drawing.Size(937, 619)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.dgvProductos)
         Me.Controls.Add(Me.cbCategoria)
         Me.Controls.Add(Me.lblCategoria)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "EliminarCategoria"
         Me.Text = "EliminarCategoria"
         CType(Me.dgvProductos, System.ComponentModel.ISupportInitialize).EndInit()

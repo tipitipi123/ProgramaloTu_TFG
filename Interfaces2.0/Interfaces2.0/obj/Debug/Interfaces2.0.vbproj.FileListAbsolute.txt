@@ -10,3 +10,15 @@ C:\Users\Tipix\source\repos\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.
 C:\Users\Tipix\source\repos\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.exe
 C:\Users\Tipix\source\repos\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.xml
 C:\Users\Tipix\source\repos\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.pdb
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\bin\Debug\Interfaces2.0.exe.config
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\bin\Debug\Interfaces2.0.exe
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\bin\Debug\Interfaces2.0.pdb
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\bin\Debug\Interfaces2.0.xml
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.vbprojResolveAssemblyReference.cache
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2._0.Form1.resources
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2._0.Resources.resources
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.vbproj.GenerateResource.cache
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.vbproj.CoreCompileInputs.cache
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.exe
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.xml
+C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.pdb
