@@ -28,6 +28,12 @@ Partial Class frmPromociones
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.MenuDerecha = New System.Windows.Forms.Panel()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.rbUno = New System.Windows.Forms.RadioButton()
+        Me.rbTodos = New System.Windows.Forms.RadioButton()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -35,12 +41,6 @@ Partial Class frmPromociones
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.lblName = New System.Windows.Forms.Label()
         Me.lblAddTag = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.rbUno = New System.Windows.Forms.RadioButton()
-        Me.rbTodos = New System.Windows.Forms.RadioButton()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuDerecha.SuspendLayout()
@@ -119,6 +119,70 @@ Partial Class frmPromociones
         Me.MenuDerecha.Size = New System.Drawing.Size(474, 604)
         Me.MenuDerecha.TabIndex = 6
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.rbUno)
+        Me.GroupBox1.Controls.Add(Me.rbTodos)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.ForeColor = System.Drawing.Color.Coral
+        Me.GroupBox1.Location = New System.Drawing.Point(34, 292)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(417, 100)
+        Me.GroupBox1.TabIndex = 14
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Aplicar Descuento"
+        '
+        'rbUno
+        '
+        Me.rbUno.AutoSize = True
+        Me.rbUno.Location = New System.Drawing.Point(11, 62)
+        Me.rbUno.Name = "rbUno"
+        Me.rbUno.Size = New System.Drawing.Size(214, 22)
+        Me.rbUno.TabIndex = 3
+        Me.rbUno.TabStop = True
+        Me.rbUno.Text = "Productos seleccionado."
+        Me.rbUno.UseVisualStyleBackColor = True
+        '
+        'rbTodos
+        '
+        Me.rbTodos.AutoSize = True
+        Me.rbTodos.Location = New System.Drawing.Point(12, 34)
+        Me.rbTodos.Name = "rbTodos"
+        Me.rbTodos.Size = New System.Drawing.Size(318, 22)
+        Me.rbTodos.TabIndex = 2
+        Me.rbTodos.TabStop = True
+        Me.rbTodos.Text = "Todos los productos de una categoría."
+        Me.rbTodos.UseVisualStyleBackColor = True
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(139, 186)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(277, 26)
+        Me.ComboBox2.TabIndex = 13
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Coral
+        Me.Label4.Location = New System.Drawing.Point(42, 192)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(86, 20)
+        Me.Label4.TabIndex = 12
+        Me.Label4.Text = "Producto:"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(139, 141)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(277, 26)
+        Me.ComboBox1.TabIndex = 11
+        '
         'TextBox2
         '
         Me.TextBox2.BackColor = System.Drawing.Color.White
@@ -192,70 +256,6 @@ Partial Class frmPromociones
         Me.lblAddTag.Size = New System.Drawing.Size(223, 25)
         Me.lblAddTag.TabIndex = 0
         Me.lblAddTag.Text = "Añadir Promociones"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(139, 141)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(277, 26)
-        Me.ComboBox1.TabIndex = 11
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(139, 186)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(277, 26)
-        Me.ComboBox2.TabIndex = 13
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.Coral
-        Me.Label4.Location = New System.Drawing.Point(42, 192)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(86, 20)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "Producto:"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.rbUno)
-        Me.GroupBox1.Controls.Add(Me.rbTodos)
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.ForeColor = System.Drawing.Color.Coral
-        Me.GroupBox1.Location = New System.Drawing.Point(34, 292)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(417, 100)
-        Me.GroupBox1.TabIndex = 14
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Aplicar Descuento"
-        '
-        'rbUno
-        '
-        Me.rbUno.AutoSize = True
-        Me.rbUno.Location = New System.Drawing.Point(11, 62)
-        Me.rbUno.Name = "rbUno"
-        Me.rbUno.Size = New System.Drawing.Size(223, 22)
-        Me.rbUno.TabIndex = 3
-        Me.rbUno.TabStop = True
-        Me.rbUno.Text = "Productos seleccionados."
-        Me.rbUno.UseVisualStyleBackColor = True
-        '
-        'rbTodos
-        '
-        Me.rbTodos.AutoSize = True
-        Me.rbTodos.Location = New System.Drawing.Point(12, 34)
-        Me.rbTodos.Name = "rbTodos"
-        Me.rbTodos.Size = New System.Drawing.Size(188, 22)
-        Me.rbTodos.TabIndex = 2
-        Me.rbTodos.TabStop = True
-        Me.rbTodos.Text = "Todos los productos."
-        Me.rbTodos.UseVisualStyleBackColor = True
         '
         'frmPromociones
         '
