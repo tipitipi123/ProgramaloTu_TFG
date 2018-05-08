@@ -1,13 +1,20 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class frmCategorias
+    Dim Editar As Boolean = False
+    Dim id As String
     '/////////////////////////////////////////////////////
     'BOTÓN GUARDAR. GUARDA LA INFORMACIÓN EN LA BD
     '/////////////////////////////////////////////////////
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        If comprobar_datos() And comprobar_existe() Then
+        If comprobar_datos() And comprobar_existe() And Editar = False Then
             insertar_datos()
-            actualizarDataGridView()
+        ElseIf comprobar_datos() And Editar = True Then
+            If actualizarCategoria() Then
+                MsgBox("Categoria modificada")
+            End If
+            Editar = False
         End If
+        actualizarDataGridView()
     End Sub
 
     '//////////////////////////////////////////////////////
@@ -26,70 +33,24 @@ Public Class frmCategorias
     'FUNCIÓN QUE INSERTA LOS DATOS 
     '/////////////////////////////////////////////////////
     Private Sub insertar_datos()
-        Try
-            conn.Open()
-            Dim Query As String
-            Query = "insert into Categorias(Nombre,Promocion,Descuento) values ('" & txtNombre.Text & "',false,0)"
-            Command = New MySqlCommand(Query, conn)
-            READER = Command.ExecuteReader
-            MessageBox.Show("Categoría creada")
-        Catch ex As MySql.Data.MySqlClient.MySqlException
-            MessageBox.Show(ex.Message)
-        End Try
-        READER.Close()
-        conn.Close()
+        Dim Query As String = "insert into Categorias(nombre) values ('" & txtNombre.Text & "')"
+        insertar_bd(Query)
     End Sub
 
     '/////////////////////////////////////////////////////
     'COMPRUEBA SI LA CATEGORÍA YA EXISTE
     '/////////////////////////////////////////////////////
     Private Function comprobar_existe()
-        Dim Query As String
-        Query = "SELECT * FROM Categorias WHERE Nombre='" & txtNombre.Text & "'"
-        Try
-            conn.Open()
-            Command = New MySqlCommand(Query, conn)
-            READER = Command.ExecuteReader()
-            If READER.Read = Nothing Then
-                READER.Close()
-                conn.Close()
-                mostrar_error.SetError(Me.txtNombre, "")
-                Return True
-            End If
-        Catch ex As MySql.Data.MySqlClient.MySqlException
-            MessageBox.Show(ex.Message)
-            Return False
-        End Try
-        READER.Close()
-        conn.Close()
-        mostrar_error.SetError(Me.txtNombre, "LA CATEGORÍA YA EXISTE")
-        Return False
+        Dim Query As String = "SELECT * FROM Categorias WHERE Nombre='" & txtNombre.Text & "'"
+        Return consulta_bd(Query)
     End Function
 
     '/////////////////////////////////////////////////////
     'MÉTODO PARA ACTUALIZAR EL DATA GRID VIEW
     '/////////////////////////////////////////////////////
     Private Sub actualizarDataGridView()
-        Dim Query As String
-        Query = "SELECT * FROM Categorias"
-        Try
-            conn.Close()
-            conn.Open()
-            Command = New MySqlCommand(Query, conn)
-            READER = Command.ExecuteReader()
-            'Creamos un DataTable y le pasamos la consulta 
-            Dim dt = New DataTable()
-            dt.Load(READER)
-            'Cargamos el DataTable en el GridDataView
-            dgvShow.AutoGenerateColumns = True
-            dgvShow.DataSource = dt
-            dgvShow.Refresh()
-            READER.Close()
-            conn.Close()
-        Catch ex As MySql.Data.MySqlClient.MySqlException
-            MessageBox.Show(ex.Message)
-            conn.Close()
-        End Try
+        Dim Query As String = "SELECT * FROM Categorias"
+        cargar_dataGridView(Query, dgvShow)
     End Sub
 
     '/////////////////////////////////////////////////////
@@ -108,6 +69,8 @@ Public Class frmCategorias
 
     Private Sub cargarCategorias()
         If dgvShow.SelectedRows.Count > 0 Then
+            Editar = True
+            id = dgvShow.CurrentRow.Cells.Item(0).Value.ToString
             txtNombre.Text = dgvShow.CurrentRow.Cells.Item(1).Value.ToString
         End If
     End Sub
@@ -124,38 +87,34 @@ Public Class frmCategorias
     End Sub
 
     Private Function borrarEnCategoria()
+        Dim Query As String
         Try
-            conn.Open()
-            Dim Query As String
-            Query = "delete from Categorias where id_categoria = ?id"
-            Command = New MySqlCommand(Query, conn)
-            Command.Parameters.AddWithValue("?id", dgvShow.CurrentRow.Cells.Item(0).Value)
-            READER = Command.ExecuteReader
-            Return True
-        Catch ex As MySql.Data.MySqlClient.MySqlException
-            MessageBox.Show(ex.Message)
-        Catch e As System.NullReferenceException
-            MsgBox("No hay una fila seleccionada")
+            Query = "delete from Categorias where id_categoria = " & dgvShow.CurrentRow.Cells.Item(0).Value
+        Catch ex2 As System.NullReferenceException
         End Try
-        READER.Close()
-        conn.Close()
-        Return False
+        Return borrar_bd(Query)
     End Function
 
-    Private Sub borrarEnPedidos()
+    Private Function borrarEnPedidos()
+        Dim Query As String
         Try
-            conn.Open()
-            Dim Query As String
-            Query = "delete from productos where categoria = ?id"
-            Command = New MySqlCommand(Query, conn)
-            Command.Parameters.AddWithValue("?id", dgvShow.CurrentRow.Cells.Item(0).Value)
-            READER = Command.ExecuteReader
-        Catch ex As MySql.Data.MySqlClient.MySqlException
-            MessageBox.Show(ex.Message)
-        Catch e As System.NullReferenceException
-
+            Query = "delete from productos where categoria = " & dgvShow.CurrentRow.Cells.Item(0).Value
+        Catch ex2 As System.NullReferenceException
+            MessageBox.Show(ex2.Message)
         End Try
-        READER.Close()
-        conn.Close()
-    End Sub
+        Return borrar_bd(Query)
+    End Function
+
+    '/////////////////////////////////////////////////////
+    'ACTUALIZAR CATEGORIA EXISTENTES
+    '/////////////////////////////////////////////////////
+    Private Function actualizarCategoria()
+        Try
+            Dim Query As String = "update Categorias set nombre = '" & txtNombre.Text & "' where id_categoria = " & id
+            insertar_bd(Query)
+            Return True
+        Catch ex As Exception
+        End Try
+        Return False
+    End Function
 End Class

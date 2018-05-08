@@ -1,3 +1,14 @@
-CREATE TABLE `empresa_prueba`.`Categorias` ( `id_categoria` INT NULL AUTO_INCREMENT , `nombre` VARCHAR(32) NOT NULL , `promocion` BOOLEAN NOT NULL , `descuento` INT NOT NULL , PRIMARY KEY (`id_categoria`)) ENGINE = InnoDB;
-CREATE TABLE `empresa_prueba`.`Productos` ( `id_producto` INT NULL AUTO_INCREMENT , `nombre` VARCHAR(32) NOT NULL , `categoria` INT NOT NULL , `precio` DOUBLE NOT NULL , `descuento` INT NOT NULL , `promocion` BOOLEAN NOT NULL , `foto` BLOB NOT NULL , PRIMARY KEY (`id_producto`)) ENGINE = InnoDB;
-alter table productos add constraint fk_productos foreign key(categoria) references categorias(id_categoria)
+CREATE TABLE `empresa_prueba`.`Productos` ( `id_producto` INT NOT NULL AUTO_INCREMENT , `nombre` VARCHAR(32) NOT NULL , `categoria` INT NOT NULL , `precio` DOUBLE NOT NULL , `promocion` INT NOT NULL , `foto` BLOB NOT NULL , PRIMARY KEY (`id_producto`)) ENGINE = InnoDB;
+CREATE TABLE `empresa_prueba`.`Productos_factura` ( `id_producto` INT NOT NULL AUTO_INCREMENT , `nombre` VARCHAR(32) NOT NULL , `categoria` INT NOT NULL , `precio` DOUBLE NOT NULL , `promocion` INT NOT NULL , `foto` BLOB NOT NULL , PRIMARY KEY (`id_producto`)) ENGINE = InnoDB;
+CREATE TABLE `empresa_prueba`.`categorias` ( `id_categoria` INT NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(32) NOT NULL ,PRIMARY KEY (`id_categoria`)) ENGINE = InnoDB;
+CREATE TABLE `empresa_prueba`.`Cestas` ( `codigo_factura` INT NOT NULL , `codigo_producto` INT NOT NULL , `cantidad` INT NOT NULL , `precio` DOUBLE NOT NULL , `total` DOUBLE NOT NULL ) ENGINE = InnoDB;
+CREATE TABLE `empresa_prueba`.`facturas` ( `id` INT NOT NULL AUTO_INCREMENT , `id_cliente` INT NOT NULL , `fecha` DATE NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `empresa_prueba`.`clientes` ( `id` INT NOT NULL AUTO_INCREMENT , `nombre` VARCHAR(32) NOT NULL , `direccion` VARCHAR(64) NOT NULL , `telefono` INT NOT NULL , `email` VARCHAR(128) NOT NULL , `usuario` VARCHAR(32) NOT NULL , `pass` VARCHAR(32) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `empresa_prueba`.`promociones` ( `id_promocion` INT NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(32) NOT NULL , `descuento` INT NOT NULL , PRIMARY KEY (`id_promocion`)) ENGINE = InnoDB;
+
+alter table productos add constraint fk_productos foreign key(categoria) references categorias(id_categoria);
+alter table cestas add constraint fk_productos_cestas foreign key(codigo_producto) references productos_factura(id_producto);
+alter table cestas add constraint fk_facturas_cestas foreign key(codigo_factura) references facturas(id);
+alter table facturas add constraint fk_clientes foreign key(id_cliente) references clientes(id);
+alter table productos add CONSTRAINT fk_promociones FOREIGN key(promocion) REFERENCES promociones(id_promocion);
+alter table productos_factura add CONSTRAINT fk_promociones_factura FOREIGN key(promocion) REFERENCES promociones(id_promocion);
