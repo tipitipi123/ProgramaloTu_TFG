@@ -5,7 +5,6 @@ Module Module1
     Public READER As MySqlDataReader
     Public Command As MySqlCommand
 
-
     Public Function insertar_bd(ByRef sentencia As String)
         Try
             conn.Open()
@@ -59,6 +58,28 @@ Module Module1
         READER.Close()
         conn.Close()
         Return False
+    End Function
+
+    Public Function devolverIdCategoria(ByRef sentencia As String)
+        Dim id As Integer = 0
+
+        Try
+            conn.Open()
+            Command = New MySqlCommand(sentencia, conn)
+            READER = Command.ExecuteReader()
+            If READER.Read = Nothing Then
+                READER.Close()
+                conn.Close()
+                Return 0
+            Else
+                id = READER("id_categoria")
+            End If
+        Catch ex As MySql.Data.MySqlClient.MySqlException
+            MessageBox.Show(ex.Message)
+        End Try
+        READER.Close()
+        conn.Close()
+        Return id
     End Function
 
     Public Sub cargar_dataGridView(ByRef query As String, ByRef dgvShow As DataGridView)
