@@ -62,7 +62,6 @@ Module Module1
 
     Public Function devolverIdCategoria(ByRef sentencia As String)
         Dim id As Integer = 0
-
         Try
             conn.Open()
             Command = New MySqlCommand(sentencia, conn)

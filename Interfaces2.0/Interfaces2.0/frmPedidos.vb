@@ -1,6 +1,6 @@
-﻿Public Class frmCliente
-    Private Sub frmCliente_Load(sender As Object, e As EventArgs) Handles Me.Load
-        actualizarDataGridView()
+﻿Public Class frmPedidos
+    Private Sub frmPedidos_Load(sender As Object, e As EventArgs) Handles Me.Load
+
     End Sub
 
     Private Sub actualizarDataGridView()

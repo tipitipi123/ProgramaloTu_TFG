@@ -22,36 +22,26 @@ Partial Class FrmCorreo
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtNombre = New System.Windows.Forms.TextBox()
+        Me.lblTittle = New System.Windows.Forms.Label()
         Me.lblName = New System.Windows.Forms.Label()
         Me.ckSelecTodo = New System.Windows.Forms.CheckBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.txtTittle = New System.Windows.Forms.TextBox()
+        Me.lbTitulo = New System.Windows.Forms.Label()
+        Me.lblmsg = New System.Windows.Forms.Label()
+        Me.rtbMsg = New System.Windows.Forms.RichTextBox()
+        Me.btnSend = New System.Windows.Forms.Button()
+        Me.cbSend = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
-        'Label1
+        'lblTittle
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(49, 47)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(169, 25)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Enviar Correos"
-        '
-        'txtNombre
-        '
-        Me.txtNombre.BackColor = System.Drawing.Color.White
-        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(57, 133)
-        Me.txtNombre.Margin = New System.Windows.Forms.Padding(0)
-        Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(275, 24)
-        Me.txtNombre.TabIndex = 4
+        Me.lblTittle.AutoSize = True
+        Me.lblTittle.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTittle.Location = New System.Drawing.Point(49, 47)
+        Me.lblTittle.Name = "lblTittle"
+        Me.lblTittle.Size = New System.Drawing.Size(169, 25)
+        Me.lblTittle.TabIndex = 0
+        Me.lblTittle.Text = "Enviar Correos"
         '
         'lblName
         '
@@ -74,57 +64,65 @@ Partial Class FrmCorreo
         Me.ckSelecTodo.Text = "Pulse para seleccionar todos los correos, "
         Me.ckSelecTodo.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txtTittle
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.White
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(57, 256)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(0)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(1043, 24)
-        Me.TextBox1.TabIndex = 15
+        Me.txtTittle.BackColor = System.Drawing.Color.White
+        Me.txtTittle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTittle.Location = New System.Drawing.Point(57, 256)
+        Me.txtTittle.Margin = New System.Windows.Forms.Padding(0)
+        Me.txtTittle.Name = "txtTittle"
+        Me.txtTittle.Size = New System.Drawing.Size(1043, 24)
+        Me.txtTittle.TabIndex = 15
         '
-        'Label2
+        'lbTitulo
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(53, 225)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(58, 20)
-        Me.Label2.TabIndex = 14
-        Me.Label2.Text = "Título:"
+        Me.lbTitulo.AutoSize = True
+        Me.lbTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbTitulo.ForeColor = System.Drawing.Color.White
+        Me.lbTitulo.Location = New System.Drawing.Point(53, 225)
+        Me.lbTitulo.Name = "lbTitulo"
+        Me.lbTitulo.Size = New System.Drawing.Size(58, 20)
+        Me.lbTitulo.TabIndex = 14
+        Me.lbTitulo.Text = "Título:"
         '
-        'Label3
+        'lblmsg
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(53, 311)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(81, 20)
-        Me.Label3.TabIndex = 16
-        Me.Label3.Text = "Mensaje:"
+        Me.lblmsg.AutoSize = True
+        Me.lblmsg.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblmsg.ForeColor = System.Drawing.Color.White
+        Me.lblmsg.Location = New System.Drawing.Point(53, 311)
+        Me.lblmsg.Name = "lblmsg"
+        Me.lblmsg.Size = New System.Drawing.Size(81, 20)
+        Me.lblmsg.TabIndex = 16
+        Me.lblmsg.Text = "Mensaje:"
         '
-        'RichTextBox1
+        'rtbMsg
         '
-        Me.RichTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox1.Location = New System.Drawing.Point(57, 355)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(1043, 148)
-        Me.RichTextBox1.TabIndex = 17
-        Me.RichTextBox1.Text = ""
+        Me.rtbMsg.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rtbMsg.Location = New System.Drawing.Point(57, 355)
+        Me.rtbMsg.Name = "rtbMsg"
+        Me.rtbMsg.Size = New System.Drawing.Size(1043, 148)
+        Me.rtbMsg.TabIndex = 17
+        Me.rtbMsg.Text = ""
         '
-        'btnGuardar
+        'btnSend
         '
-        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.ForeColor = System.Drawing.Color.Black
-        Me.btnGuardar.Location = New System.Drawing.Point(57, 528)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(109, 39)
-        Me.btnGuardar.TabIndex = 18
-        Me.btnGuardar.Text = "Enviar"
-        Me.btnGuardar.UseVisualStyleBackColor = True
+        Me.btnSend.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSend.ForeColor = System.Drawing.Color.Black
+        Me.btnSend.Location = New System.Drawing.Point(57, 528)
+        Me.btnSend.Name = "btnSend"
+        Me.btnSend.Size = New System.Drawing.Size(109, 39)
+        Me.btnSend.TabIndex = 18
+        Me.btnSend.Text = "Enviar"
+        Me.btnSend.UseVisualStyleBackColor = True
+        '
+        'cbSend
+        '
+        Me.cbSend.FormattingEnabled = True
+        Me.cbSend.Location = New System.Drawing.Point(57, 138)
+        Me.cbSend.Name = "cbSend"
+        Me.cbSend.Size = New System.Drawing.Size(395, 21)
+        Me.cbSend.TabIndex = 19
         '
         'FrmCorreo
         '
@@ -132,15 +130,15 @@ Partial Class FrmCorreo
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gray
         Me.ClientSize = New System.Drawing.Size(1180, 604)
-        Me.Controls.Add(Me.btnGuardar)
-        Me.Controls.Add(Me.RichTextBox1)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.cbSend)
+        Me.Controls.Add(Me.btnSend)
+        Me.Controls.Add(Me.rtbMsg)
+        Me.Controls.Add(Me.lblmsg)
+        Me.Controls.Add(Me.txtTittle)
+        Me.Controls.Add(Me.lbTitulo)
         Me.Controls.Add(Me.ckSelecTodo)
-        Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.lblName)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblTittle)
         Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FrmCorreo"
@@ -150,13 +148,13 @@ Partial Class FrmCorreo
 
     End Sub
 
-    Friend WithEvents Label1 As Label
-    Friend WithEvents txtNombre As TextBox
+    Friend WithEvents lblTittle As Label
     Friend WithEvents lblName As Label
     Friend WithEvents ckSelecTodo As CheckBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents RichTextBox1 As RichTextBox
-    Friend WithEvents btnGuardar As Button
+    Friend WithEvents txtTittle As TextBox
+    Friend WithEvents lbTitulo As Label
+    Friend WithEvents lblmsg As Label
+    Friend WithEvents rtbMsg As RichTextBox
+    Friend WithEvents btnSend As Button
+    Friend WithEvents cbSend As ComboBox
 End Class

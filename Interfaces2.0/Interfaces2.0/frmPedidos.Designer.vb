@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmCliente
+Partial Class frmPedidos
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -25,21 +25,10 @@ Partial Class frmCliente
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.lblTittle = New System.Windows.Forms.Label()
         Me.dgvShow = New System.Windows.Forms.DataGridView()
+        Me.lblTittle = New System.Windows.Forms.Label()
         CType(Me.dgvShow, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'lblTittle
-        '
-        Me.lblTittle.AutoSize = True
-        Me.lblTittle.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTittle.ForeColor = System.Drawing.Color.White
-        Me.lblTittle.Location = New System.Drawing.Point(37, 42)
-        Me.lblTittle.Name = "lblTittle"
-        Me.lblTittle.Size = New System.Drawing.Size(231, 25)
-        Me.lblTittle.TabIndex = 2
-        Me.lblTittle.Text = "Clientes Registrados"
         '
         'dgvShow
         '
@@ -59,7 +48,7 @@ Partial Class frmCliente
         Me.dgvShow.ColumnHeadersHeight = 30
         Me.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvShow.EnableHeadersVisualStyles = False
-        Me.dgvShow.Location = New System.Drawing.Point(42, 104)
+        Me.dgvShow.Location = New System.Drawing.Point(36, 95)
         Me.dgvShow.Name = "dgvShow"
         Me.dgvShow.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -78,25 +67,36 @@ Partial Class frmCliente
         Me.dgvShow.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvShow.Size = New System.Drawing.Size(1129, 442)
-        Me.dgvShow.TabIndex = 5
+        Me.dgvShow.TabIndex = 7
         '
-        'frmCliente
+        'lblTittle
+        '
+        Me.lblTittle.AutoSize = True
+        Me.lblTittle.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTittle.ForeColor = System.Drawing.Color.White
+        Me.lblTittle.Location = New System.Drawing.Point(31, 33)
+        Me.lblTittle.Name = "lblTittle"
+        Me.lblTittle.Size = New System.Drawing.Size(221, 25)
+        Me.lblTittle.TabIndex = 6
+        Me.lblTittle.Text = "Pedidos Realizados"
+        '
+        'frmPedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gray
-        Me.ClientSize = New System.Drawing.Size(1222, 622)
+        Me.ClientSize = New System.Drawing.Size(1206, 583)
         Me.Controls.Add(Me.dgvShow)
         Me.Controls.Add(Me.lblTittle)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmCliente"
-        Me.Text = "frmCliente"
+        Me.Name = "frmPedidos"
+        Me.Text = "frmPedidos"
         CType(Me.dgvShow, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents lblTittle As Label
     Friend WithEvents dgvShow As DataGridView
+    Friend WithEvents lblTittle As Label
 End Class

@@ -2,12 +2,16 @@
 Imports MySql.Data.MySqlClient
 Public Class frmProductos
     Dim foto As Byte()
+    Dim Editar As Boolean = False
+    Dim nombre As String
+
     '/////////////////////////////////////////////////////
     'MÉTODO QUE PRECARGA TODO LO NECESARIO
     '/////////////////////////////////////////////////////
     Private Sub frmProductos_Load(sender As Object, e As EventArgs) Handles Me.Load
         actualizarDataGridView()
         load_tagg()
+        pbImagen.SizeMode = PictureBoxSizeMode.StretchImage
     End Sub
 
     'Cargar Categorias
@@ -59,6 +63,7 @@ Public Class frmProductos
                     name = openFile.FileName
                     foto = File.ReadAllBytes(name)
                     pbImagen.Image = Image.FromFile(openFile.FileName)
+                    pbImagen.SizeMode = PictureBoxSizeMode.StretchImage
                 End If
             Catch Ex As Exception
                 MessageBox.Show("NO SE PUEDE LEER LA IMAGEN")
@@ -125,10 +130,15 @@ Public Class frmProductos
     'FUNCIÓN BOTON GUARDAR 
     '//////////////////////////////////////////////////////////////////////////////////
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        If comprobar_todo() Then
+        If comprobar_todo() And Editar = False Then
             guardar_producto()
-            actualizarDataGridView()
+        ElseIf comprobar_todo() And Editar = True Then
+            If actualizarProducto() Then
+                Editar = False
+                MsgBox("Producto Actualizado")
+            End If
         End If
+        actualizarDataGridView()
     End Sub
 
     Private Sub guardar_producto()
@@ -136,7 +146,8 @@ Public Class frmProductos
             Dim Query As String
             Dim QueryId As String = "SELECT id_categoria FROM Categorias where nombre='" & cbCategorias.Text & "'"
             Query = String.Format("insert into productos(nombre,categoria,precio,promocion,foto) values ('{0}',{1},{2},{3},'{4}')", txtNombre.Text, devolverIdCategoria(QueryId), txtPrecio.Text, 1, foto)
-            Query = String.Format("insert into productos_facturas(nombre,categoria,precio,promocion,foto) values ('{0}',{1},{2},{3},'{4}')", txtNombre.Text, devolverIdCategoria(QueryId), txtPrecio.Text, 1, foto)
+            insertar_bd(Query)
+            Query = String.Format("insert into productos_factura(nombre,categoria,precio,promocion,foto) values ('{0}',{1},{2},{3},'{4}')", txtNombre.Text, devolverIdCategoria(QueryId), txtPrecio.Text, 1, foto)
             If insertar_bd(Query) Then
                 MsgBox("Producto Guardado")
             End If
@@ -144,4 +155,70 @@ Public Class frmProductos
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+
+
+    '///////////////////////////////////////////////////////////////////////////////////
+    'BOTÓN BORRAR
+    '//////////////////////////////////////////////////////////////////////////////////
+    Private Sub btnDeleteProd_Click(sender As Object, e As EventArgs) Handles btnDeleteProd.Click
+        If buttonDelet() Then
+            actualizarDataGridView()
+            MsgBox("Producto Borrado")
+        End If
+    End Sub
+
+    Private Function buttonDelet()
+        Dim Query As String
+        Try
+            Query = String.Format("delete from productos where nombre = '{0}'", dgvShow.CurrentRow.Cells.Item(0).Value)
+        Catch ex2 As System.NullReferenceException
+            MessageBox.Show(ex2.Message)
+        End Try
+        Return borrar_bd(Query)
+    End Function
+
+    '///////////////////////////////////////////////////////////////////////////////////
+    'BOTÓN EDITAR
+    '//////////////////////////////////////////////////////////////////////////////////
+    Private Sub btnEditarProd_Click(sender As Object, e As EventArgs) Handles btnEditarProd.Click
+        cargarCategorias()
+    End Sub
+
+    Private Sub cargarCategorias()
+        If dgvShow.SelectedRows.Count > 0 Then
+            Editar = True
+            nombre = dgvShow.CurrentRow.Cells.Item(0).Value.ToString
+            txtNombre.Text = dgvShow.CurrentRow.Cells.Item(0).Value.ToString
+            txtPrecio.Text = dgvShow.CurrentRow.Cells.Item(1).Value.ToString
+            cbCategorias.Text = dgvShow.CurrentRow.Cells.Item(2).Value.ToString
+            ' obtener_imagen(nombre)
+        End If
+    End Sub
+
+    Private Sub obtener_imagen(ByRef nombre)
+        Dim sentencia As String = String.Format("select foto from productos where nombre = '{0}'", nombre)
+        Try
+            conn.Open()
+            Command = New MySqlCommand(sentencia, conn)
+            READER = Command.ExecuteReader()
+
+            Dim ms As New MemoryStream(foto)
+            pbImagen.Image = Image.FromStream(ms)
+        Catch ex As MySql.Data.MySqlClient.MySqlException
+            MessageBox.Show(ex.Message)
+        End Try
+        READER.Close()
+        conn.Close()
+    End Sub
+
+    Private Function actualizarProducto()
+        Try
+            Dim QueryId As String = "SELECT id_categoria FROM Categorias where nombre='" & cbCategorias.Text & "'"
+            Dim Query As String = String.Format("update productos set nombre = '{0}', categoria = {1}, precio = {2}, promocion = {3}, foto = {4} where nombre = '{5}'", txtNombre.Text, devolverIdCategoria(QueryId), txtPrecio.Text, 1, foto, nombre)
+            insertar_bd(Query)
+            Return True
+        Catch ex As Exception
+        End Try
+        Return False
+    End Function
 End Class
