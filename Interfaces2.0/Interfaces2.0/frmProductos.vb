@@ -1,9 +1,11 @@
 ﻿Imports System.IO
+Imports System.Net
 Imports MySql.Data.MySqlClient
 Public Class frmProductos
     Dim foto As Byte()
     Dim Editar As Boolean = False
     Dim nombre As String
+    Dim url As String
 
     '/////////////////////////////////////////////////////
     'MÉTODO QUE PRECARGA TODO LO NECESARIO
@@ -37,7 +39,7 @@ Public Class frmProductos
     End Sub
 
     Private Sub actualizarDataGridView()
-        Dim Query As String = "SELECT productos.nombre as 'Producto', productos.precio as 'Precio',categorias.nombre as 'Categoria', promociones.descuento as 'Descuento' FROM productos, categorias, promociones WHERE categoria = categorias.id_categoria and promocion = promociones.id_promocion"
+        Dim Query As String = "SELECT productos.nombre as 'Producto', categorias.nombre as 'Categoria', descuento, precio from productos, categorias where productos.categoria = categorias.id_categoria"
         cargar_dataGridView(Query, dgvShow)
     End Sub
 
@@ -96,6 +98,15 @@ Public Class frmProductos
         Return True
     End Function
 
+    Private Function comprobar_descuento()
+        If txtDescuento.Text = "" Then
+            mostrar_error.SetError(Me.txtPrecio, "TIENE QUE INTRODUCIR UN DESCUENTO CORRECTO")
+            Return False
+        End If
+        mostrar_error.SetError(Me.txtPrecio, "")
+        Return True
+    End Function
+
     Private Function comprobar_imagen()
         If IsNothing(foto) Then
             mostrar_error.SetError(Me.pbImagen, "SELECCIONE UNA IMAGEN")
@@ -106,7 +117,7 @@ Public Class frmProductos
     End Function
 
     Private Function comprobar_todo()
-        If comprobar_nombre() And comprobar_precio() And comprobar_imagen() And obtener_id_categoria() Then
+        If comprobar_nombre() And comprobar_precio() And comprobar_imagen() And obtener_id_categoria() And comprobar_descuento() Then
             Return True
         End If
         Return False
@@ -131,6 +142,7 @@ Public Class frmProductos
     '//////////////////////////////////////////////////////////////////////////////////
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         If comprobar_todo() And Editar = False Then
+            UploaderImg()
             guardar_producto()
         ElseIf comprobar_todo() And Editar = True Then
             If actualizarProducto() Then
@@ -145,9 +157,9 @@ Public Class frmProductos
         Try
             Dim Query As String
             Dim QueryId As String = "SELECT id_categoria FROM Categorias where nombre='" & cbCategorias.Text & "'"
-            Query = String.Format("insert into productos(nombre,categoria,precio,promocion,foto) values ('{0}',{1},{2},{3},'{4}')", txtNombre.Text, devolverIdCategoria(QueryId), txtPrecio.Text, 1, foto)
+            Query = String.Format("insert into productos(nombre,categoria,descuento,precio,foto) values ('{0}',{1},{2},{3},'{4}')", txtNombre.Text, devolverIdCategoria(QueryId), txtPrecio.Text, txtDescuento.Text, url)
             insertar_bd(Query)
-            Query = String.Format("insert into productos_factura(nombre,categoria,precio,promocion,foto) values ('{0}',{1},{2},{3},'{4}')", txtNombre.Text, devolverIdCategoria(QueryId), txtPrecio.Text, 1, foto)
+            Query = String.Format("insert into productos_factura(nombre,categoria,precio,descuento,foto) values ('{0}',{1},{2},{3},'{4}')", txtNombre.Text, devolverIdCategoria(QueryId), txtPrecio.Text, txtDescuento.Text, url)
             If insertar_bd(Query) Then
                 MsgBox("Producto Guardado")
             End If
@@ -178,6 +190,21 @@ Public Class frmProductos
     End Function
 
     '///////////////////////////////////////////////////////////////////////////////////
+    'SUBIR IMAGEN SERVIDOR  
+    '//////////////////////////////////////////////////////////////////////////////////
+    Private Sub UploaderImg()
+        url = "ftp://localhost/img/" & txtNombre.Text
+        Dim request As System.Net.FtpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.WebRequest)
+        request.Credentials = New System.Net.NetworkCredential("root", "123")
+        request.Method = System.Net.WebRequestMethods.Ftp.UploadFile
+        Dim ksr As System.IO.Stream = request.GetRequestStream()
+        ksr.Write(foto, 0, foto.Length)
+        ksr.Close()
+        ksr.Dispose()
+        url = "http://localhost/img/" & txtNombre.Text
+    End Sub
+
+    '///////////////////////////////////////////////////////////////////////////////////
     'BOTÓN EDITAR
     '//////////////////////////////////////////////////////////////////////////////////
     Private Sub btnEditarProd_Click(sender As Object, e As EventArgs) Handles btnEditarProd.Click
@@ -189,9 +216,10 @@ Public Class frmProductos
             Editar = True
             nombre = dgvShow.CurrentRow.Cells.Item(0).Value.ToString
             txtNombre.Text = dgvShow.CurrentRow.Cells.Item(0).Value.ToString
-            txtPrecio.Text = dgvShow.CurrentRow.Cells.Item(1).Value.ToString
-            cbCategorias.Text = dgvShow.CurrentRow.Cells.Item(2).Value.ToString
-            ' obtener_imagen(nombre)
+            txtPrecio.Text = dgvShow.CurrentRow.Cells.Item(3).Value.ToString
+            cbCategorias.Text = dgvShow.CurrentRow.Cells.Item(1).Value.ToString
+            txtDescuento.Text = dgvShow.CurrentRow.Cells.Item(2).Value.ToString
+            obtener_imagen(nombre)
         End If
     End Sub
 
@@ -201,9 +229,13 @@ Public Class frmProductos
             conn.Open()
             Command = New MySqlCommand(sentencia, conn)
             READER = Command.ExecuteReader()
+            Dim url As String
+            READER.Read()
+            url = READER("foto")
+            Dim tClient As WebClient = New WebClient
+            Dim tImage As Bitmap = Bitmap.FromStream(New MemoryStream(tClient.DownloadData(url)))
+            pbImagen.Image = tImage
 
-            Dim ms As New MemoryStream(foto)
-            pbImagen.Image = Image.FromStream(ms)
         Catch ex As MySql.Data.MySqlClient.MySqlException
             MessageBox.Show(ex.Message)
         End Try

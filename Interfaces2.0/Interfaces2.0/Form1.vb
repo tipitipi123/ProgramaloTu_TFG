@@ -74,10 +74,6 @@ Public Class Form1
         abrirFromulario(frmProductos)
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        abrirFromulario(frmPromociones)
-    End Sub
-
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         abrirFromulario(FrmCorreo)
     End Sub

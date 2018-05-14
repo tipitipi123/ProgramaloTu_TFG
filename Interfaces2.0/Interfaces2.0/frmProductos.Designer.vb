@@ -24,9 +24,9 @@ Partial Class frmProductos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProductos))
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MenuDerecha = New System.Windows.Forms.Panel()
         Me.cbCategorias = New System.Windows.Forms.ComboBox()
         Me.btnSelectImage = New System.Windows.Forms.Button()
@@ -49,6 +49,8 @@ Partial Class frmProductos
         Me.lblCategorias = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.mostrar_error = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.txtDescuento = New System.Windows.Forms.TextBox()
+        Me.lblDescuento = New System.Windows.Forms.Label()
         Me.MenuDerecha.SuspendLayout()
         CType(Me.pbImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuIzquierdo.SuspendLayout()
@@ -61,6 +63,8 @@ Partial Class frmProductos
         'MenuDerecha
         '
         Me.MenuDerecha.BackColor = System.Drawing.Color.DimGray
+        Me.MenuDerecha.Controls.Add(Me.txtDescuento)
+        Me.MenuDerecha.Controls.Add(Me.lblDescuento)
         Me.MenuDerecha.Controls.Add(Me.cbCategorias)
         Me.MenuDerecha.Controls.Add(Me.btnSelectImage)
         Me.MenuDerecha.Controls.Add(Me.pbImagen)
@@ -89,7 +93,7 @@ Partial Class frmProductos
         'btnSelectImage
         '
         Me.btnSelectImage.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSelectImage.Location = New System.Drawing.Point(144, 425)
+        Me.btnSelectImage.Location = New System.Drawing.Point(143, 469)
         Me.btnSelectImage.Name = "btnSelectImage"
         Me.btnSelectImage.Size = New System.Drawing.Size(224, 23)
         Me.btnSelectImage.TabIndex = 9
@@ -99,7 +103,7 @@ Partial Class frmProductos
         'pbImagen
         '
         Me.pbImagen.Image = CType(resources.GetObject("pbImagen.Image"), System.Drawing.Image)
-        Me.pbImagen.Location = New System.Drawing.Point(144, 242)
+        Me.pbImagen.Location = New System.Drawing.Point(143, 286)
         Me.pbImagen.Name = "pbImagen"
         Me.pbImagen.Size = New System.Drawing.Size(224, 163)
         Me.pbImagen.TabIndex = 8
@@ -140,7 +144,7 @@ Partial Class frmProductos
         'btnGuardar
         '
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(34, 487)
+        Me.btnGuardar.Location = New System.Drawing.Point(33, 531)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(417, 49)
         Me.btnGuardar.TabIndex = 3
@@ -213,34 +217,34 @@ Partial Class frmProductos
         Me.dgvShow.BackgroundColor = System.Drawing.Color.Gray
         Me.dgvShow.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvShow.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvShow.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvShow.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvShow.ColumnHeadersHeight = 30
         Me.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvShow.EnableHeadersVisualStyles = False
         Me.dgvShow.Location = New System.Drawing.Point(26, 99)
         Me.dgvShow.Name = "dgvShow"
         Me.dgvShow.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DimGray
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvShow.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DimGray
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvShow.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DimGray
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvShow.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DimGray
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvShow.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvShow.Size = New System.Drawing.Size(688, 380)
         Me.dgvShow.TabIndex = 4
@@ -319,6 +323,27 @@ Partial Class frmProductos
         '
         Me.mostrar_error.ContainerControl = Me
         '
+        'txtDescuento
+        '
+        Me.txtDescuento.BackColor = System.Drawing.Color.White
+        Me.txtDescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDescuento.Location = New System.Drawing.Point(139, 231)
+        Me.txtDescuento.Margin = New System.Windows.Forms.Padding(10)
+        Me.txtDescuento.Name = "txtDescuento"
+        Me.txtDescuento.Size = New System.Drawing.Size(275, 24)
+        Me.txtDescuento.TabIndex = 12
+        '
+        'lblDescuento
+        '
+        Me.lblDescuento.AutoSize = True
+        Me.lblDescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDescuento.ForeColor = System.Drawing.Color.Coral
+        Me.lblDescuento.Location = New System.Drawing.Point(25, 235)
+        Me.lblDescuento.Name = "lblDescuento"
+        Me.lblDescuento.Size = New System.Drawing.Size(101, 20)
+        Me.lblDescuento.TabIndex = 11
+        Me.lblDescuento.Text = "Descuento:"
+        '
         'frmProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -366,4 +391,6 @@ Partial Class frmProductos
     Friend WithEvents cbCategorias As ComboBox
     Friend WithEvents dgvShow As DataGridView
     Friend WithEvents mostrar_error As ErrorProvider
+    Friend WithEvents txtDescuento As TextBox
+    Friend WithEvents lblDescuento As Label
 End Class

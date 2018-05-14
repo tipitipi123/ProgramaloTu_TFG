@@ -29,7 +29,6 @@ Partial Class Form1
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.btnProductos = New System.Windows.Forms.Button()
         Me.btnCategorias = New System.Windows.Forms.Button()
         Me.MenuTop = New System.Windows.Forms.Panel()
@@ -58,7 +57,6 @@ Partial Class Form1
         Me.MenuVertical.Controls.Add(Me.Button5)
         Me.MenuVertical.Controls.Add(Me.Button4)
         Me.MenuVertical.Controls.Add(Me.Button3)
-        Me.MenuVertical.Controls.Add(Me.Button2)
         Me.MenuVertical.Controls.Add(Me.btnProductos)
         Me.MenuVertical.Controls.Add(Me.btnCategorias)
         Me.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left
@@ -96,7 +94,7 @@ Partial Class Form1
         Me.Button5.ForeColor = System.Drawing.Color.White
         Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(0, 382)
+        Me.Button5.Location = New System.Drawing.Point(0, 332)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(250, 40)
         Me.Button5.TabIndex = 5
@@ -113,7 +111,7 @@ Partial Class Form1
         Me.Button4.ForeColor = System.Drawing.Color.White
         Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(0, 336)
+        Me.Button4.Location = New System.Drawing.Point(0, 286)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(250, 40)
         Me.Button4.TabIndex = 4
@@ -130,28 +128,12 @@ Partial Class Form1
         Me.Button3.ForeColor = System.Drawing.Color.White
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(0, 290)
+        Me.Button3.Location = New System.Drawing.Point(0, 240)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(250, 40)
         Me.Button3.TabIndex = 3
         Me.Button3.Text = "          ENVIAR CORREOS"
         Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(0, 244)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(250, 40)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "     PROMOCIONES"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'btnProductos
         '
@@ -300,7 +282,6 @@ Partial Class Form1
     Friend WithEvents Button5 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents btnProductos As Button
     Friend WithEvents pbLetrasLogo As PictureBox
 End Class

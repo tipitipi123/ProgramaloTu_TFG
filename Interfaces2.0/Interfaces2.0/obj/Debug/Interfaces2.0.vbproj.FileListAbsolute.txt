@@ -60,3 +60,4 @@ C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0
 C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2._0.frmProductos.resources
 C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2._0.frmPromociones.resources
 C:\Users\Tipix1998\Documents\GitHub\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2.0.vbproj.CopyComplete
+C:\Users\Tipix\Desktop\TFG\ProgramaloTu_TFG\ProgramaloTu_TFG\Interfaces2.0\Interfaces2.0\obj\Debug\Interfaces2._0.frmPedidos.resources
