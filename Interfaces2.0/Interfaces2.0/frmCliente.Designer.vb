@@ -35,9 +35,10 @@ Partial Class frmCliente
         Me.lblTittle.AutoSize = True
         Me.lblTittle.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTittle.ForeColor = System.Drawing.Color.White
-        Me.lblTittle.Location = New System.Drawing.Point(37, 42)
+        Me.lblTittle.Location = New System.Drawing.Point(49, 52)
+        Me.lblTittle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTittle.Name = "lblTittle"
-        Me.lblTittle.Size = New System.Drawing.Size(231, 25)
+        Me.lblTittle.Size = New System.Drawing.Size(286, 31)
         Me.lblTittle.TabIndex = 2
         Me.lblTittle.Text = "Clientes Registrados"
         '
@@ -59,7 +60,8 @@ Partial Class frmCliente
         Me.dgvShow.ColumnHeadersHeight = 30
         Me.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvShow.EnableHeadersVisualStyles = False
-        Me.dgvShow.Location = New System.Drawing.Point(42, 104)
+        Me.dgvShow.Location = New System.Drawing.Point(56, 158)
+        Me.dgvShow.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvShow.Name = "dgvShow"
         Me.dgvShow.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -77,18 +79,19 @@ Partial Class frmCliente
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
         Me.dgvShow.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvShow.Size = New System.Drawing.Size(1129, 442)
+        Me.dgvShow.Size = New System.Drawing.Size(1505, 514)
         Me.dgvShow.TabIndex = 5
         '
         'frmCliente
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gray
-        Me.ClientSize = New System.Drawing.Size(1222, 622)
+        Me.ClientSize = New System.Drawing.Size(1629, 766)
         Me.Controls.Add(Me.dgvShow)
         Me.Controls.Add(Me.lblTittle)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmCliente"
         Me.Text = "frmCliente"
         CType(Me.dgvShow, System.ComponentModel.ISupportInitialize).EndInit()
